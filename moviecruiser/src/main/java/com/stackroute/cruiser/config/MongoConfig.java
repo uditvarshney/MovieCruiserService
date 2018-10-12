@@ -1,3 +1,4 @@
+/*
 package com.stackroute.cruiser.config;
 
 import com.mongodb.MongoClient;
@@ -22,3 +23,4 @@ public class MongoConfig {
         return mongoTemplate;
     }
 }
+*/

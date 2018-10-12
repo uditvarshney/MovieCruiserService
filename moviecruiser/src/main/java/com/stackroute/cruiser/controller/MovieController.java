@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v1/movie")
+@RequestMapping(value = "/api/v1")
 public class MovieController {
 
     private MovieService movieService;
@@ -24,7 +24,7 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/movie")
     public ResponseEntity<?> saveMovie(@Valid @RequestBody Movie movie){
         ResponseEntity responseEntity;
         try{
@@ -37,12 +37,12 @@ public class MovieController {
         return responseEntity;
     }
 
-    @GetMapping (value = "/")
+    @GetMapping (value = "/movie")
     public ResponseEntity<?> getAllMovies(){
         return new ResponseEntity<List<Movie>>(movieService.getAllMovies(),HttpStatus.OK);
     }
 
-    @GetMapping("imdbId/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<?> searchById(@PathVariable("id") String id){
         ResponseEntity responseEntity;
         try{
@@ -54,7 +54,7 @@ public class MovieController {
         return responseEntity;
     }
 
-    @GetMapping("movieName/{movieName}")
+    @GetMapping("movie/{movieName}")
     public ResponseEntity<?> searchByName(@PathVariable("movieName") String movieName){
         ResponseEntity responseEntity;
         try{
